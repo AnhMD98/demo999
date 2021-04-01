@@ -19,13 +19,13 @@ jobs:
         run: |
           cd /home/sysadmin
           pwd
-          rm -rf TestCIPython
+          rm -rf demo999
           docker ps -a
           docker images
-          git clone https://github.com/AnhMD98/TestCIPython
+          git clone https://github.com/AnhMD98/demo999
           ls -la
           cd /home/sysadmin/docker_cloud
           ls -la
-          wget https://github.com/AnhMD98/TestCIpython/releases/download/v1.14/hello
-          docker-compose up -d
+          curl -s https://api.github.com/repos/AnhMD98/demo999/releases/latest | grep "/hello.zip" | cut -d '"' -f 4 | wget -i -
+          unzip hello.zip
           
