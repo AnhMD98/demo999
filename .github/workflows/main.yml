@@ -1,0 +1,31 @@
+name: test
+on:
+  release:
+    types: [published]
+jobs:
+  
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+      
+  build_docker:
+    needs:
+      - build
+    runs-on: self-hosted
+    steps:
+      - name: demo
+        run: |
+          cd /home/sysadmin
+          pwd
+          rm -rf TestCIPython
+          docker ps -a
+          docker images
+          git clone https://github.com/AnhMD98/TestCIPython
+          ls -la
+          cd /home/sysadmin/docker_cloud
+          ls -la
+          wget https://github.com/AnhMD98/TestCIpython/releases/download/v1.14/hello
+          docker-compose up -d
+          
