@@ -29,3 +29,4 @@ jobs:
           curl -s https://api.github.com/repos/AnhMD98/demo999/releases/latest | grep "/hello.zip" | cut -d '"' -f 4 | wget -i -
           unzip hello.zip
           
+          
