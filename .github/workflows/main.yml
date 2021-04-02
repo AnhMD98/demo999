@@ -28,5 +28,7 @@ jobs:
           ls -la
           curl -s https://api.github.com/repos/AnhMD98/demo999/releases/latest | grep "/hello.zip" | cut -d '"' -f 4 | wget -i -
           unzip hello.zip
+          cp /home/sysadmin/docker_cloud/hello /home/sysadmin/docker_cloud/oauth2srv/
+          docker-compose up -d
           
           
